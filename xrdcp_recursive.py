@@ -35,10 +35,11 @@ if args.source is None or args.target is None:
 #for sourceDir in getDirList(args.source):
 #  targetDir = sourceDir.replace(args..source, args..target)
 #  print getoutput('eosmkdir %s' % targetDir)
-
+print (args.target)
+print (args.source)
 for sourceFile in get_file_list(args.source):
-    targetFile = sourceFile.replace(args.source, args.target)
-    command = f"xrdcp {sourceFile} {args.redir}/{targetFile}"
+    targetFile = sourceFile.replace('results', args.target)
+    command = f"xrdcp -f {sourceFile} {args.redir}/{targetFile}"
     output = subprocess.check_output(command, stderr=subprocess.STDOUT, shell=True)
     print(command)
     print(output.decode('utf-8'))

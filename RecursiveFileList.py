@@ -46,6 +46,7 @@ def make_file_list(prefix, dir_map):
             elif isinstance(child, dict):
                 for subdir_file in make_file_list(path.join(prefix, key), child):
                     file_list.append(subdir_file)
+    print (file_list)                
     return file_list
 
 def make_dir_list(prefix, dir_map):
@@ -64,7 +65,7 @@ def get_file_list(dir_name):
     This function provides one level of indirection for making the dir_map
     needed by make_file_list.
     """
-    return make_file_list(dir_name, map_dir(dir_name, dir_name))
+    return make_file_list('./', map_dir('./', dir_name))
 
 def get_dir_list(dir_name):
     """Returns a list of directory paths below the base path 'dir_name'.
